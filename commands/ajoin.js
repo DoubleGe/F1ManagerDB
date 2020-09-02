@@ -3,7 +3,7 @@ const botConfig = require("../botconfig.json");
 const lang = require("../lang.json");
 
 module.exports.run = async (bot, message, args) => {
-
+    var guild = await message.guild;
     var membercount
     var open = true;
     if(!open) return message.channel.send("Er is momenteel geen plek om te joinen. Kijk anders in #wachtlijst")
