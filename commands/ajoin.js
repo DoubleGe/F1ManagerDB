@@ -34,9 +34,9 @@ module.exports.run = async (bot, message, args) => {
     } else return message.channel.send(`Je hebt geen bestaande dag in getypt.`);
 
     if(message.member.roles.cache.find(r => r.name === dag)) return message.reply("Je doet al mee aan deze race.");
-    if(guild.roles.cache.get((message.member.roles.cache.find(r => r.name === dag)).id).members.size < 20){
+    if((guild.roles.cache.get(message.member.roles.cache.find(r => r.name === dag)).id).members.size < 20){
         let member = message.member;
-        member.roles.add(guild.roles.cache.get((message.member.roles.cache.find(r => r.name === dag)).id));
+        member.roles.add((guild.roles.cache.get(message.member.roles.cache.find(r => r.name === dag)).id));
     } else return message.channel.send("Aanmelding mislukt. Het maximaal aantal mensen doet al mee. Je kan nog mee doen in #wachtlijst of in een andere GrandPrix");
 
 
