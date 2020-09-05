@@ -40,7 +40,7 @@ bot.on("guildMemberAdd", member => {
 
     if (!channel) return;
 
-    channel.send(`Welkom op de server ${member}! :F1Car:`);
+    channel.send(`Welkom op de server ${member}!\nGebruik !join [naam] [dag] om je aantemelden voor een GrandPrix.`);
 
 })
 
