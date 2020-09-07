@@ -12,6 +12,7 @@ module.exports.run = async(bot, message, args) => {
             .addFields(
                 {name: "Bot naam:", value: bot.user.username},
                 {name: "Version", value: botConfig.version},
+                {name: "Servers: ", value : bot.guilds.cache.size},
                 {name: "Gemaakt op:", value: bot.user.createdAt},
                 {name: "Gemaakt door:", value: "Double_Gezicht#6874 / Wesley"}
             )
