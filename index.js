@@ -52,8 +52,7 @@ bot.on("guildMemberRemove", member => {
     channel.send(`${member} heeft de server verlaten. \nWij gaan je missen!`);
 })
 
-bot.login("NzQ4MTA2Nzk2MDk0MzI0ODI3.X0Ymvw.WF9y-jH0-4jvmM35N9kksY_e9KY");
-//bot.login(process.env.token);
+bot.login(process.env.token);
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online`);
