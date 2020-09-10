@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: 'join',
-    desc: "Join een F1 Seizoen.",
-    cat: "F1"
+    name: 'ojoin',
+    desc: "Old Join een F1 Seizoen.",
+    cat: "Hide"
 }

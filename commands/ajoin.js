@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: 'ajoin',
-    desc: "Alpha Join een F1 Seizoen.",
-    cat: "Hide"
+    name: 'join',
+    desc: "Join een F1 Seizoen.",
+    cat: "F1"
 }
