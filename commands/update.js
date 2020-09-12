@@ -17,7 +17,9 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send("**Update 1.1.1**\n**1.** !update command toegevoegd \n**2.** Bug Fixes\nAls je een bug vindt report hem met !bug**")
     } else if(updatever == 120){
         return message.channel.send("**Update 1.2.0!:tada:**\n**1.** Aanmeld command updated. \n**2.** socialmedia command toegevoegd !social. \n**3.** Bug Fixes\nAls je een bug vindt report hem met !bug**")
-    }else {
+    }else if(updatever == 121){
+        return message.channel.send("**Update 1.2.1!:**\n**1.** Bug Fixes\nAls je een bug vindt report hem met !bug**")
+    }else{
         return message.channel.send("Gebruik ;update **[versie]** (Voorbeeld ;update 111 (1.1.1).)")
     }
 }

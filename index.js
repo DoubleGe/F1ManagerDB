@@ -87,33 +87,35 @@ bot.on("message", async message => {
 
     var messageArray = message.content.split(" ");
 
-    var controlWords = JSON.parse(fs.readFileSync("./data/controlWords.json"))
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+        var controlWords = JSON.parse(fs.readFileSync("./data/controlWords.json"))
 
-    var sentenceUser = "";
-    var amountControlWords = 0;
+        var sentenceUser = "";
+        var amountControlWords = 0;
 
-    for (let y = 0; y < messageArray.length; y++) {
-        const word = messageArray[y].toLowerCase();
-        
-        var changeWord = "";
-        for (let i = 0; i < controlWords["controlWords"].length; i++){
-            if (word.includes(controlWords["controlWords"][i])) {
-                changeWord = word.replace(controlWords["controlWords"][i], "Bobba");
-                sentenceUser += " " + changeWord;
+        for (let y = 0; y < messageArray.length; y++) {
+            const word = messageArray[y].toLowerCase();
 
-                amountControlWords++;
+            var changeWord = "";
+            for (let i = 0; i < controlWords["controlWords"].length; i++) {
+                if (word.includes(controlWords["controlWords"][i])) {
+                    changeWord = word.replace(controlWords["controlWords"][i], "Bobba");
+                    sentenceUser += " " + changeWord;
+
+                    amountControlWords++;
+                }
+
             }
-
+            if (!changeWord) {
+                sentenceUser += " " + messageArray[y];
+            }
         }
-        if(!changeWord){
-            sentenceUser+= " " + messageArray[y]; 
-        }
-    }
 
-    if(amountControlWords != 0){
-        message.delete();
-        message.channel.send(sentenceUser).then(msg => msg.delete({timeout: 5000}))
-        message.channel.send("Gebruik deze taal niet.").then(msg => msg.delete({timeout: 5000}))
+        if (amountControlWords != 0) {
+            message.delete();
+            message.channel.send(sentenceUser).then(msg => msg.delete({ timeout: 5000 }))
+            message.channel.send("Gebruik deze taal niet.").then(msg => msg.delete({ timeout: 5000 }))
+        }
     }
 
     var command = messageArray[0].toLowerCase();
